@@ -20,6 +20,7 @@ public final class RemoteFeedLoader {
         self.client = client
     }
     public func load() {
+        ///Clients don't need to know about the specific URL. They just want to load a feed of items, so we hide the URL as an implementation detail.
         client.get(from: url)
     }
 }
