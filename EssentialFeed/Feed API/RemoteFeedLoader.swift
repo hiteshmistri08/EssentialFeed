@@ -38,13 +38,12 @@ public final class RemoteFeedLoader {
         ///Clients don't need to know about the specific URL. They just want to load a feed of items, so we hide the URL as an implementation detail.
         client.get(from: url) { result in
             switch result {
-            case let .success(data, _):
-                if let root = try? JSONDecoder().decode(Root.self, from: data) {
+            case let .success(data, response):
+                if response.statusCode == 200, let root = try? JSONDecoder().decode(Root.self, from: data) {
                     completion(.success(root.items))
                 } else {
                     completion(.failure(.invalidData))
                 }
-
             case .failure:
                 completion(.failure(.connectivity))
             }
