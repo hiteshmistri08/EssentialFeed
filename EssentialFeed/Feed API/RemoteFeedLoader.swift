@@ -25,18 +25,23 @@ public final class RemoteFeedLoader {
         case invalidData
     }
     
+    public enum Result:Equatable {
+        case success([FeedItem])
+        case failure(Error)
+    }
+    
     public init(url:URL,client:HTTPClient) {
         self.url = url
         self.client = client
     }
-    public func load(completion:@escaping(Error) -> Void) {
+    public func load(completion:@escaping(Result) -> Void) {
         ///Clients don't need to know about the specific URL. They just want to load a feed of items, so we hide the URL as an implementation detail.
         client.get(from: url) { result in
             switch result {
             case .success:
-                completion(.invalidData)
+                completion(.failure(.invalidData))
             case .failure:
-                completion(.connectivity)
+                completion(.failure(.connectivity))
             }
         }
     }
