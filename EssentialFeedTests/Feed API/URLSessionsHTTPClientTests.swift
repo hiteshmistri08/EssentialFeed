@@ -57,48 +57,17 @@ class URLSessionsHTTPClientTests : XCTestCase {
     }
     
     func test_getFromURL_failsOnRequestError() {
-        let error = NSError(domain: "any error", code: 1)
-        URLProtocolStubs.stub(data: nil, response: nil, error: error)
-                
-        let exp = expectation(description: "Wait for completion")
+        let requestError = NSError(domain: "any error", code: 1)
         
-        makeSUT().get(from:anyURL()) { result in
-            switch result {
-            case let .failure(receivedError as NSError):
-                debugPrint("received Error : ",receivedError)
-                debugPrint("Error : ",error)
-                if #available(iOS 14.0, *) {
-                    XCTAssertEqual(receivedError.code, error.code)
-                    XCTAssertEqual(receivedError.domain, error.domain)
-                } else {
-                    XCTAssertEqual(receivedError, error)
-                }
-            default:
-                XCTFail("Expected failure with error \(error), got \(result) instead")
-            }
-            exp.fulfill()
-        }
+        let receivedError = resultErrorFor(data: nil, response: nil, error: requestError) as NSError?
         
-        wait(for: [exp], timeout: 1.0)
+        XCTAssertEqual(receivedError?.code, requestError.code)
+        XCTAssertEqual(receivedError?.domain, requestError.domain)
+//        XCTAssertEqual(receivedError as NSError?, requestError)
     }
     
     func test_getFromURL_failsOnAllNilValues() {
-        URLProtocolStubs.stub(data: nil, response: nil, error: nil)
-                
-        let exp = expectation(description: "Wait for completion")
-        
-        makeSUT().get(from:anyURL()) { result in
-            switch result {
-            case .failure:
-                break
-            default:
-                XCTFail("Expected failure, got \(result) instead")
-            }
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
+        XCTAssertNotNil(resultErrorFor(data: nil, response: nil, error: nil))
     }
     
     // MARK: - Helpers
@@ -111,6 +80,27 @@ class URLSessionsHTTPClientTests : XCTestCase {
 
     private func anyURL() -> URL {
         return URL(string: "http://any-url.com")!
+    }
+    
+    private func resultErrorFor(data:Data?, response: URLResponse?, error:Error?, file: StaticString = #file, line: UInt = #line) -> Error? {
+        URLProtocolStubs.stub(data: nil, response: nil, error: error)
+        let sut = makeSUT(file:file, line:line)
+        let exp = expectation(description: "Wait for completion")
+        
+        var receivedError: Error?
+        sut.get(from:anyURL()) { result in
+            switch result {
+            case let .failure(error as NSError):
+                receivedError = error
+            default:
+                XCTFail("Expected failure with error, got \(result) instead")
+            }
+            
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+        return receivedError
     }
     
     private class URLProtocolStubs : URLProtocol {
