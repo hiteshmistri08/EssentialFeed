@@ -113,14 +113,11 @@ class RemoteFeedLoaderTest : XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, client)
     }
+    
     private func failure(_ error:RemoteFeedLoader.Error) -> RemoteFeedLoader.Result {
         return .failure(error)
     }
-    private func trackForMemoryLeaks(_ instance:AnyObject, file:StaticString = #file, line:UInt = #line) {
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, "Instance should have been deallocated. Potential memeory leak.", file: file, line: line)
-        }
-    }
+    
     private func makeItem(id:UUID, description:String? = nil, location:String? = nil, imageURL:URL) -> (model:FeedItem,json:[String:Any]) {
         let model = FeedItem(id: id, description: description, location: location, imageURL: imageURL)
         
@@ -134,10 +131,12 @@ class RemoteFeedLoaderTest : XCTestCase {
         }
         return (model, itemJSON)
     }
+    
     private func makeItemJSON(_ items:[[String:Any]]) -> Data {
         let json = ["items" : items]
         return try! JSONSerialization.data(withJSONObject: json)
     }
+    
     private func expect(_ sut:RemoteFeedLoader, toCompleteWith expectedResult:RemoteFeedLoader.Result, when action:() -> Void, file:StaticString = #filePath, line:UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
         
