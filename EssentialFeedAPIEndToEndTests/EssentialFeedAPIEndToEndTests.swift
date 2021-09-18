@@ -76,7 +76,7 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
         return [
             "Description 1",
             nil,
-            "Description 30",
+            "Description 3",
             nil,
             "Description 5",
             "Description 6",
