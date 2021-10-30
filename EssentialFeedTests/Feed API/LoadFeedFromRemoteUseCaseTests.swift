@@ -8,16 +8,18 @@
 import XCTest
 import EssentialFeed
 
-class RemoteFeedLoaderTest : XCTestCase {
+class LoadFeedFromRemoteUseCaseTests : XCTestCase {
     
     func test_init() {
         let (_ ,client) = makeSUT()
+        
         XCTAssertTrue(client.requestedURLs.isEmpty)
     }
     
     func test_load_requestsDataFromURL() {
         let url = URL(string: "http://a-given-url.com")!
         let (sut,client) = makeSUT(url:url)
+        
         sut.load { _ in }
         
         XCTAssertEqual(client.requestedURLs, [url])
@@ -26,8 +28,10 @@ class RemoteFeedLoaderTest : XCTestCase {
     func test_loadTwice_requestsDataFromURLTwice() {
         let url = URL(string: "http://a-given-url.com")!
         let (sut,client) = makeSUT(url:url)
+        
         sut.load { _ in }
         sut.load { _ in }
+        
         XCTAssertEqual(client.requestedURLs, [url,url])
     }
     
