@@ -16,16 +16,16 @@ class LocalFeedLoader {
     }
     
     func save(_ items:[FeedItem]) {
-        store.deleteCacheFeed()
+        store.deleteCachedFeed()
     }
     
 }
 
 class FeedStore {
-    var deleteCacheFeedCallCount = 0
+    var deleteCachedFeedCallCount = 0
     
-    func deleteCacheFeed() {
-        deleteCacheFeedCallCount += 1
+    func deleteCachedFeed() {
+        deleteCachedFeedCallCount += 1
     }
 }
 
@@ -35,7 +35,7 @@ class CacheFeedUseCaseTests: XCTestCase {
         let store = FeedStore()
         _ = LocalFeedLoader(store:store)
         
-        XCTAssertEqual(store.deleteCacheFeedCallCount, 0)
+        XCTAssertEqual(store.deleteCachedFeedCallCount, 0)
     }
     
     func test_save_requestsCacheDeletion() {
@@ -45,7 +45,7 @@ class CacheFeedUseCaseTests: XCTestCase {
         
         sut.save(items)
 
-        XCTAssertEqual(store.deleteCacheFeedCallCount, 1)
+        XCTAssertEqual(store.deleteCachedFeedCallCount, 1)
     }
     
     // MARK: - Helpers
