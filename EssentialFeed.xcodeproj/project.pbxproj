@@ -10,8 +10,8 @@
 		67277EBF263535AB001ED971 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67277EB5263535AA001ED971 /* EssentialFeed.framework */; };
 		67277ED2263535E8001ED971 /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67277ED1263535E8001ED971 /* FeedImage.swift */; };
 		67277ED626353749001ED971 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67277ED526353749001ED971 /* FeedLoader.swift */; };
-		67403093277581E300412D4C /* FeedStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 67403091277581E300412D4C /* FeedStore.xcdatamodeld */; };
 		6740309427758FFD00412D4C /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677C12D12774E44F00F3C20D /* CoreDataFeedStore.swift */; };
+		6740309527759CC500412D4C /* FeedStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 67403091277581E300412D4C /* FeedStore.xcdatamodeld */; };
 		6741F93A26A28DBF00672E88 /* URLSessionsHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6741F93926A28DBF00672E88 /* URLSessionsHTTPClientTests.swift */; };
 		6743200926CB942400CA0514 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6743200826CB942400CA0514 /* URLSessionHTTPClient.swift */; };
 		6743F5152774156900B44D2B /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6743F5142774156900B44D2B /* FeedStoreSpecs.swift */; };
@@ -431,6 +431,7 @@
 				675278E327521CB100890FE2 /* RemoteFeedItem.swift in Sources */,
 				675413CB27643820002BFD7C /* FeedCachePolicy.swift in Sources */,
 				67511BD82650E1C300C0B6F8 /* RemoteFeedLoader.swift in Sources */,
+				6740309527759CC500412D4C /* FeedStore.xcdatamodeld in Sources */,
 				675278E527521D4600890FE2 /* LocalFeedImage.swift in Sources */,
 				675A40B0274F2F7C00B714FB /* FeedStore.swift in Sources */,
 				675A40AE274F2E5300B714FB /* LocalFeedLoader.swift in Sources */,
@@ -458,7 +459,6 @@
 				6743F51F277447B300B44D2B /* XCTestCase+FailableDeleteFeedStoreSpecs.swift in Sources */,
 				6743F5192774420500B44D2B /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift in Sources */,
 				675DB27E275E7C0D0071EE06 /* ValidateFeedCacheUseTests.swift in Sources */,
-				67403093277581E300412D4C /* FeedStore.xcdatamodeld in Sources */,
 				6743F5152774156900B44D2B /* FeedStoreSpecs.swift in Sources */,
 				674CEB2826C8F0930038B531 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				677C12D02774E08000F3C20D /* CoreDataFeedStoreTests.swift in Sources */,
