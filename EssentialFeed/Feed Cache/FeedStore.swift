@@ -10,10 +10,10 @@ import Foundation
 public typealias CachedFeed = (feed: [LocalFeedImage], timestamp: Date)
 
 public protocol FeedStore {
-    typealias DeletionError = Error?
+    typealias DeletionError = Result<Void,Error>
     typealias DeletionCompletion = (DeletionError) -> Void
     
-    typealias InsertionError = Error?
+    typealias InsertionError = Result<Void,Error>
     typealias InsertionCompletion = (InsertionError) -> Void
 
     typealias RetrievalResult = Result<CachedFeed?,Error>
