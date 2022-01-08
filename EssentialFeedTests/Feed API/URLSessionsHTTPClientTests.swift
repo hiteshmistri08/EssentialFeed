@@ -91,7 +91,7 @@ class URLSessionsHTTPClientTests : XCTestCase {
     }
     
     private func anyData() -> Data {
-        return Data.init(count: 2)
+        return Data("invalid json".utf8)
     }
         
     private func anyHTTPURLResponse() -> HTTPURLResponse {
